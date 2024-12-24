@@ -7,10 +7,8 @@
         <color name="teal_700">#FF018786</color>
         <color name="black">#FF000000</color>
         <color name="white">#FFFFFFFF</color>
-
         <!-- Color Primary : Deep dark blue  -->
-        <color name="colorPrimary">#192A56</color>
-        <color name="colorPrimaryDark">#0A3D62</color>
-        <color name="colorAccent">#192A56</color>
-        <color name="colorWhite">#FFFFFFFF</color>
+        <color name="colorPrimary">#315736</color>
+        <color name="colorPrimaryDark">#152617</color>
+        <color name="colorAccent">#315736</color>
 </resources>

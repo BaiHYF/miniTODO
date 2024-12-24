@@ -21,6 +21,10 @@ import com.dev.mtodo.Util.DbHelper;
 import com.dev.mtodo.Model.Todo;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
+
+/**
+ * CreateTodo to handle the creation and update of new Todo items
+ */
 public class CreateTodo extends BottomSheetDialogFragment {
     public static final String TAG = "New";
 
@@ -106,7 +110,6 @@ public class CreateTodo extends BottomSheetDialogFragment {
     public void onDismiss(@NonNull DialogInterface dialog) {
         super.onDismiss(dialog);
         FragmentActivity activity = getActivity();
-        // TODO: 2024/12/24 unimplemented. handle activity on dialog close
         if (activity instanceof DialogCloseListener) {
             ((DialogCloseListener)activity).onDialogClose(dialog);
         }

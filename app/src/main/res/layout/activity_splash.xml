@@ -16,7 +16,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         android:text="@string/app_title"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold"
         android:drawableEnd="@drawable/baseline_done_outline_55"
