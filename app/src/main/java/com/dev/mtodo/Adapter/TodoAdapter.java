@@ -10,6 +10,7 @@ import android.widget.CompoundButton;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.dev.mtodo.CreateTodo;
 import com.dev.mtodo.MainActivity;
 import com.dev.mtodo.R;
 import com.dev.mtodo.Util.DbHelper;
@@ -40,12 +41,7 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder
         final Todo item = todoList.get(position);
         holder.todoCheckBox.setText(item.getContent());
         holder.todoCheckBox.setChecked(item.getStatus() != 0);
-        holder.todoCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                DB.updateTodosStatus(item.getId(), isChecked ? 1 : 0);
-            }
-        });
+        holder.todoCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> DB.updateTodosStatus(item.getId(), isChecked ? 1 : 0));
     }
 
     @Override
@@ -65,16 +61,21 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder
 
     public void deleteTodo(int position) {
         Todo todoItem = todoList.get(position);
-        DB.DeleteTodo(todoItem.getId());
+        DB.deleteFromTodos(todoItem.getId());
         todoList.remove(position);
         notifyItemRemoved(position);
     }
 
     public void update(int position) {
         Todo todoItem = todoList.get(position);
+        
         Bundle bundle = new Bundle();
+        bundle.putInt("id", todoItem.getId());
+        bundle.putString("content", todoItem.getContent());
 
-        // TODO: 2024/12/24 Complete update function. 
+        CreateTodo createTodo = new CreateTodo();
+        createTodo.setArguments(bundle);
+        createTodo.show(activity.getSupportFragmentManager(), createTodo.getTag());
     }
 
     public static class TodoViewHolder extends RecyclerView.ViewHolder {

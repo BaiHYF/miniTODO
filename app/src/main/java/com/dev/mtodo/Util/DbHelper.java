@@ -46,8 +46,8 @@ public class DbHelper extends SQLiteOpenHelper {
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         // TODO: 2024/12/24 Unimplemented
-        values.put(COL_2 , model.get());
-        values.put(COL_3 , 0);
+        values.put(COL_2 , model.getContent());
+        values.put(COL_3 , 0);  // Init with status = 0, not completed.
         db.insert(TABLE_TODOS, null , values);
     }
 
@@ -83,13 +83,11 @@ public class DbHelper extends SQLiteOpenHelper {
             if (cursor !=null){
                 if (cursor.moveToFirst()){
                     do {
-                        // TODO: 2024/12/24 Unimplemented!
                         Todo todo = new Todo();
                         todo.setId(cursor.getInt(cursor.getColumnIndex(COL_1)));
-                        todo.setTask(cursor.getString(cursor.getColumnIndex(COL_2)));
+                        todo.setContent(cursor.getString(cursor.getColumnIndex(COL_2)));
                         todo.setStatus(cursor.getInt(cursor.getColumnIndex(COL_3)));
                         modelList.add(todo);
-
                     }while (cursor.moveToNext());
                 }
             }
