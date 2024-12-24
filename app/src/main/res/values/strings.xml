@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">MTODO</string>
-    <string name="AppTitle">Mini TODO List</string>
+    <string name="app_title">Mini TODO List</string>
+    <string name="todos">TODOS</string>
+    <string name="add_task_button_description">Add task button</string>
+    <string name="task_item_text_shown_default">I\'m a new todo :)</string>
+    <string name="create_new_todo_description">Create a New TODO</string>
+    <string name="btn_save_text">Save</string>
 </resources>
